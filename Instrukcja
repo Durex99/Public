@@ -1,0 +1,16 @@
+Na podstawie poniższej danych , napisz kod skryptu filmów online wraz z instrukcją instalacji krok po kroku.
+
+Funkcjonalności:
+
+Możliwość wyszukiwania filmów i seriali za pomocą wyszukiwarki lub za pomocą tagów.
+Możliwość rejestracji i logowania użytkowników.
+Możliwość oceniania i komentowania filmów przez zarejestrowanych użytkowników.
+Panel administracyjny 
+Możliwość zbierania punktów przez użytkowników i wymiany ich na nagrody.
+Importer filmów z filmweb.pl okładki,gatunki,rok itp
+Zarządzanie reklamami.
+Generowanie sitemapy z panelu administracyjnego.
+Statystyki rejestracji, wyszukiwarek, ocen i komentarzy.
+Proste dodawanie nowych kategorii filmów.
+Kopia bazy danych z panelu administracyjnego.
+
