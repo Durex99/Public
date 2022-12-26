@@ -19,5 +19,5 @@ Statystyki rejestracji, wyszukiwarek, ocen i komentarzy.
 Proste dodawanie nowych kategorii filmów.
 Kopia bazy danych z panelu administracyjnego.
 
-Opis skryptu filmów online : skrypt importuje nazwy filmów, okładki filmów,rok produkcji,aktorzy, kto i dodaje na stronę , chciałbym aby całe zarządzanie stroną było z poziomu panelu administratora 
+Opis skryptu filmów online : skrypt importuje Danych o filmach - tytuł, opis, okładka, kategoria itp i dodaje na stronę , chciałbym aby całe zarządzanie stroną było z poziomu panelu administratora 
 
