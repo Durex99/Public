@@ -17,7 +17,6 @@ Zarządzanie reklamami.
 Generowanie sitemapy z panelu administracyjnego.
 Statystyki rejestracji, wyszukiwarek, ocen i komentarzy.
 Proste dodawanie nowych kategorii filmów.
-Kopia bazy danych z panelu administracyjnego.
-
-Opis skryptu filmów online : skrypt importuje Danych o filmach - tytuł, opis, okładka, kategoria itp i dodaje na stronę , chciałbym aby całe zarządzanie stroną było z poziomu panelu administratora 
+Kopia bazy danych z panelu administracyjnego 
+skrypt który importuje dane o filmach - tytuł, opis, okładka, kategoria itp i dodaje na stronę , chciałbym aby całe zarządzanie stroną było z poziomu panelu administratora 
 
