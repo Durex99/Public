@@ -1,0 +1,130 @@
+
+HOME
+PRICING
+COVERAGE ▼
+DOCUMENTATION ▼
+HELP ▼
+🔍
+15 DAYS OF TRIAL LEFT
+PROFILE ▼
+JUMP TO:
+| Verify key and secret | Live scores | Match Commentary | Calendar fixtures | Match events | Match statistics | Match lineups | Competition Squads | History | Head 2 Head | Standings | Top goalscorers | Top disciplinary | Countries list | Countries flags | Competitions list | Competition groups | Federations list | Teams list | Team last matches | Seasons list | Data formats | Standard Errors | Making a request | Data languages
+HISTORY
+On this page you can find the way to use our historical API endpoints. Get the information about past matches that have ended.
+
+
+This football API endpoint supports filtering by league, but they are now deprecated to get optimal results, please switch to using competitions instead. You can find more about competitions on the football competitions documentation page.
+The history football API endpoint supports teams names in various languages to find out more about this. Read through our documentation on language support.
+On this page, we are explaining how you can get the list with football matches and scores that have been played back time for which there is available information. Also, the possibilities that you have to filter and traverse our historical football data.
+
+
+NOTE: The id of the match in the football history api endpoint is the same as the id of the {{{6,live-score api}}} endpoint. However, this id is different is different that the id from the football fixtures api endpoint. That is why here we have the fixture_id field to make the connection between a fixture and a match that has finished. If the fixture_id value is empty or 0 this means that there was no fixture for this match before it started.
+
+ENDPOINT
+In order, to get the list of all historical football matches data from our api the only thing you need to do is the call the URL bellow. We are supporting historical data for 400+ national competitions, cup matches, and international leagues from all over the globe. In this example, we have used your api key and secret pair. If you copy the URL it will work straight away.
+
+GET:
+http://livescore-api.com/api-client/scores/history.json?key=lzQNLWoh1xxLdZtO&secret=itGCnUb4ekV7lzUH8LuUISbKqJwDIZr1
+
+PARAMETERS
+The history API endpoint supports several parameters that you can use to filter the football data and traverse through it at your convenience. The parameters are listed in the table below. You can use the parameters together as well as separately. Except for league and competition_id! You have use only one of them at a time.
+
+Name	Type	Required	Example	Description
+from	date	No	2018-05-15	Get past matches from this date onwards.
+to	date	No	2018-05-15	Get past matches data until this date included.
+league*	number	No	8	Get past matches data for a certain league with the provided id
+competition_id	number	No	16	The id of the competition which history football matches we look for
+team	number	No	19	The id of the team which past scores you need
+page	number	No	3	If there are pages you can go to a specific page using this parameter
+lang	string	No	ru	2 letter ISO 639-1 language code
+* Our football API now transitioned to using competitions and leagues are deprecated
+
+RESPONSE
+A response to a request will contain in total maximum of 30 past matches data for the provided parameters in the query.
+
+Name	Type	Example	Description
+id	number	78	the id of the match it is the same as the id of the match when it was available in our live-score endpoints. This ID differs from the fixture id.
+date	date	2019-07-12	The date when the match began in UTC time
+home_name	string	Real Madrid FC	the name of the home side team
+away_name	string	FC Barcelona	the name of the away side team
+ht_score	string	0 - 0	the score of the match when half time was reached
+ft_score	string	1 - 1	the score of the match when 90 minutes were reached
+et_score	string	1 - 2	the score of the match after 120 minutes of extra time
+time	string	FT	the time in minutes. It should always be FT
+league_id	number	5	the id of the league to which the game belonged
+status	string	FINISHED	the status of the match it should always be FINISHED
+added	datetime	2018-03-23 14:27:02	the date and time when the football match was added to our live-score api data endpoint
+last_changed	datetime	2018-03-23 14:27:02	the date and time when the last modification of the match records was made
+home_id	number	18	the id of the home team, 0 if not availalbe
+away_id	number	19	the id of the away team, 0 if not available
+competition_id	number	16	The id of the competition in which the match took place
+competition_name	string	Premier League	The name of the competition in which the match took place
+location	string	Old Trafford	The place where the match took place, it can be the stadium name, the city name, both, or it can even include the country name
+fixture_id	number	123456	The id of the fixture for which the match is, it could be empty 0 or null, in this case there was no fixture added before the match started
+scheduled	string	12:00	The hour and minute for which the match was schedule to start
+{
+    "success": true,
+    "data": {
+        "match": [
+            {
+                "id": "148763",
+                "date": "2019-07-12",
+                "home_name": "Dnyapro Mogilev",
+                "away_name": "Energetik-BGU",
+                "score": "3 - 4",
+                "ht_score": "2 - 2",
+                "ft_score": "3 - 4",
+                "et_score": "",
+                "time": "FT",
+                "league_id": "20",
+                "status": "FINISHED",
+                "added": "2019-07-12 15:30:06",
+                "last_changed": "2019-07-12 17:37:07",
+                "home_id": "2119",
+                "away_id": "4226",
+                "competition_id": "16",
+                "competition_name": "Premier",
+                "location": "Spartak Stadium, Mogilev",
+                "fixture_id": 10523,
+                "scheduled": "15:30"
+            },
+            {
+                "id": "148786",
+                "date": "2019-07-12",
+                "home_name": "FC Minsk",
+                "away_name": "Isloch",
+                "score": "3 - 3",
+                "ht_score": "2 - 1",
+                "ft_score": "3 - 3",
+                "et_score": "",
+                "time": "FT",
+                "league_id": "20",
+                "status": "FINISHED",
+                "added": "2019-07-12 17:30:13",
+                "last_changed": "2019-07-12 19:35:08",
+                "home_id": "2089",
+                "away_id": "2190",
+                "competition_id": "16",
+                "competition_name": "Premier",
+                "location": "FC Minsk Stadium",
+                "fixture_id": 1589845,
+                "scheduled": "17:30"
+            }
+        ],
+        "next_page": "https:\/\/livescore-api.com\/api-client\/scores\/history.json?key=demo_key&secret=demo_secret&competition_id=16&page=2",
+        "prev_page": false
+    }
+}
+
+EXAMPLES
+The following examples show you how to use this endpoint in various programming languages without any filters provided. In this example, we have used your api key and secret pair. If you copy the URL it will work straight away.
+cUrl
+
+curl -XGET http://livescore-api.com/api-client/scores/history.json?key=lzQNLWoh1xxLdZtO\\&secret=itGCnUb4ekV7lzUH8LuUISbKqJwDIZr1
+PHP
+file_get_contents('http://livescore-api.com/api-client/scores/history.json?key=lzQNLWoh1xxLdZtO\&secret=itGCnUb4ekV7lzUH8LuUISbKqJwDIZr1');
+Python
+import urllib2
+req = urllib2.Request('http://livescore-api.com/api-client/scores/history.json?key=lzQNLWoh1xxLdZtO\&secret=itGCnUb4ekV7lzUH8LuUISbKqJwDIZr1')
+response = urllib2.urlopen(req)
+print response.read()
